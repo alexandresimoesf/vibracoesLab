@@ -1,4 +1,4 @@
-from vpython import *
+from vpython import box, helix, vector, graph, color, gcurve, cos, sin, rate
 
 
 alunos = [('Alexandre Augusto Simões Filho', '2019013357'), ('WELINGTON DE SOUZA SOARES', '2018011616')]
@@ -36,7 +36,7 @@ posicao, velocidade, aceleracao = gcurve(graph=gp, color=color.cyan),\
                                   gcurve(graph=ga, color=color.blue)
 
 t = 0
-t_final = 50
+t_final = 10
 dt = 0.01
 
 x_0 = (massa.pos + massa.velocity * dt).mag
