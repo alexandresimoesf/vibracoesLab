@@ -4,6 +4,8 @@ from vpython import *
 alunos = [('Alexandre Augusto Simões Filho', '2019013357'), ('WELINGTON DE SOUZA SOARES', '2018011616')]
 for nome_matricula in alunos:
     print('Nome: {},\nMatrícula: {}\n'.format(*nome_matricula))
+else:
+    print('Git: https://github.com/alexandresimoesf/vibracoesLab')
 
 # ___ Dados ___
 m = 30  # [kg]
