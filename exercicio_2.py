@@ -38,7 +38,7 @@ t_final = 10
 dt = 0.01
 
 x_0 = (massa.pos + massa.velocity * dt).mag
-v_0 = ((massa.velocity + ((eq - massa.pos) * (mola.constant / massa.massa)) * dt)).mag
+v_0 = (massa.velocity + ((eq - massa.pos) * (mola.constant / massa.massa)) * dt).mag
 
 print('Deslocamento inicial: x_0 = %f m' % x_0)
 print('Velocidade Inicial: v_0 = %f m/s' % v_0)
