@@ -1,6 +1,5 @@
 from vpython import box, helix, vector, graph, color, gcurve, cos, sin, rate
 
-
 alunos = [('Alexandre Augusto Simões Filho', '2019013357'), ('WELINGTON DE SOUZA SOARES', '2018011616')]
 for nome_matricula in alunos:
     print('Nome: {},\nMatrícula: {}\n'.format(*nome_matricula))
@@ -26,13 +25,12 @@ pivot = vector(0, 0, 0)
 mola = helix(pos=pivot, axis=massa.pos - pivot, radius=0.4, constant=k, thickness=0.1, coils=20, color=color.red)
 eq = vector(9, 0, 0)
 
-
-gp, gv, ga = graph(title='<b>Posição</b>', xtitle='<i>x [m]</i>', ytitle='<sup>Tempo</sup>'),\
-             graph(title='<b>Velocidade</b>', xtitle='<i>v [m/s]</i>', ytitle='<sup>Tempo</sup>'),\
+gp, gv, ga = graph(title='<b>Posição</b>', xtitle='<i>x [m]</i>', ytitle='<sup>Tempo</sup>'), \
+             graph(title='<b>Velocidade</b>', xtitle='<i>v [m/s]</i>', ytitle='<sup>Tempo</sup>'), \
              graph(title='<b>Aceleracao</b>', xtitle='<i>a [m/s^2]</i>', ytitle='<sup>Tempo</sup>')
 
-posicao, velocidade, aceleracao = gcurve(graph=gp, color=color.cyan),\
-                                  gcurve(graph=gv, color=color.green),\
+posicao, velocidade, aceleracao = gcurve(graph=gp, color=color.cyan), \
+                                  gcurve(graph=gv, color=color.green), \
                                   gcurve(graph=ga, color=color.blue)
 
 t = 0
@@ -53,8 +51,6 @@ print('Amplitude Máxima: Xmáx = %f m' % ampl_max)
 vel_max = (v_0 ** 2 + (x_0 * Wn) ** 2) ** 0.5
 print('Velocidade Máxima: Vmáx = %f m/s' % vel_max)
 
-
-
 while t < t_final:
     rate(100)
     acc = (eq - massa.pos) * (mola.constant / massa.massa)
@@ -71,7 +67,7 @@ while t < t_final:
     velocidade.plot(v, t)
 
     # Aceleração do sistema: a(t)
-    a = - massa.pos.x * Wn**2 * cos(Wn * t) + massa.velocity.x * Wn * -sin(Wn * t)
+    a = - massa.pos.x * Wn ** 2 * cos(Wn * t) + massa.velocity.x * Wn * -sin(Wn * t)
     aceleracao.plot(a, t)
 
     t = t + dt

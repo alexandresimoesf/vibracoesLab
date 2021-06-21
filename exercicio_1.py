@@ -1,6 +1,5 @@
 from vpython import box, helix, vector, graph, color, gcurve, cos, sin, rate
 
-
 alunos = [('Alexandre Augusto Simões Filho', '2019013357'), ('WELINGTON DE SOUZA SOARES', '2018011616')]
 for nome_matricula in alunos:
     print('Nome: {},\nMatrícula: {}\n'.format(*nome_matricula))
@@ -26,7 +25,6 @@ pivot = vector(0, 0, 0)
 mola = helix(pos=pivot, axis=massa.pos - pivot, radius=0.4, constant=k, thickness=0.1, coils=20, color=color.red)
 eq = vector(9, 0, 0)
 
-
 t = 0
 t_final = 10
 dt = 0.01
@@ -44,8 +42,6 @@ print('Amplitude Máxima: Xmáx = %f m' % ampl_max)
 # ___ Velocidade Máxima ___
 vel_max = (v_0 ** 2 + (x_0 * Wn) ** 2) ** 0.5
 print('Velocidade Máxima: Vmáx = %f m/s' % vel_max)
-
-
 
 while t < t_final:
     rate(100)
