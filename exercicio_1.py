@@ -27,14 +27,6 @@ mola = helix(pos=pivot, axis=massa.pos - pivot, radius=0.4, constant=k, thicknes
 eq = vector(9, 0, 0)
 
 
-gp, gv, ga = graph(title='<b>Posição</b>', xtitle='<i>x [m]</i>', ytitle='<sup>Tempo</sup>'),\
-             graph(title='<b>Velocidade</b>', xtitle='<i>v [m/s]</i>', ytitle='<sup>Tempo</sup>'),\
-             graph(title='<b>Aceleracao</b>', xtitle='<i>a [m/s^2]</i>', ytitle='<sup>Tempo</sup>')
-
-posicao, velocidade, aceleracao = gcurve(graph=gp, color=color.cyan),\
-                                  gcurve(graph=gv, color=color.green),\
-                                  gcurve(graph=ga, color=color.blue)
-
 t = 0
 t_final = 10
 dt = 0.01
@@ -61,17 +53,5 @@ while t < t_final:
     massa.velocity = massa.velocity + acc * dt
     massa.pos = massa.pos + massa.velocity * dt
     mola.axis = massa.pos - mola.pos
-
-    # Resposta do sistema:  x(t)
-    x = massa.pos.x * cos(Wn * t) + (massa.velocity.x / Wn) * sin(Wn * t)
-    posicao.plot(x, t)
-
-    # Velocidade do sistema: v(t)
-    v = - massa.pos.x * Wn * sin(Wn * t) + massa.velocity.x * cos(Wn * t)
-    velocidade.plot(v, t)
-
-    # Aceleração do sistema: a(t)
-    a = - massa.pos.x * Wn**2 * cos(Wn * t) + massa.velocity.x * Wn * -sin(Wn * t)
-    aceleracao.plot(a, t)
 
     t = t + dt
